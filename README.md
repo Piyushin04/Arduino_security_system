@@ -40,7 +40,7 @@ User enters a 4-digit password via push buttons.
 
 Display updates using time-division multiplexing.
 
-On confirmation:
+On confirmation >
 
 Correct password → Servo rotates to unlock.
 
