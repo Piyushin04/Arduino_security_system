@@ -1,0 +1,687 @@
+#include <Pushbutton.h>
+
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+
+int pos = 00; 
+
+Pushbutton button(A5);
+Pushbutton button2(A4);
+Pushbutton button3(A2);
+
+int a=0;
+int b=0;
+
+int digit=1;
+int count=0;
+int count1=0;
+int c=0;
+int d=0;
+int pass=0;
+
+int digit1=1;
+
+int pinA = 2;
+int pinB = 3;
+int pinC  = 4;
+int pinD = 5;
+int pinE = 6;
+int pinF = 7;
+int pinG = 8;
+int  D1 = 9;
+int D2 = 10;
+int D3 = 11;
+int D4 = 12;
+void setup(){
+  Serial.begin(9600);
+    myservo.attach(A1);  // attaches the servo on pin 9 to the servo object
+
+  
+  pinMode(pinA, OUTPUT);     
+  pinMode(pinB,  OUTPUT);     
+  pinMode(pinC, OUTPUT);     
+  pinMode(pinD, OUTPUT);     
+  pinMode(pinE, OUTPUT);     
+  pinMode(pinF, OUTPUT);     
+  pinMode(pinG,  OUTPUT);   
+  pinMode(D1, OUTPUT);  
+  pinMode(D2, OUTPUT);  
+  pinMode(D3,  OUTPUT);  
+  pinMode(D4, OUTPUT);  
+
+  digitalWrite(D1, LOW);
+  digitalWrite(D2,  LOW);
+  digitalWrite(D3, LOW);
+  digitalWrite(D4, LOW);
+  //buzzer
+  pinMode(A3,OUTPUT);
+
+ myservo.write(0);
+  
+}
+
+void buttonCounter(){
+    button.waitForPress();
+    a+=1;
+   
+    button.waitForRelease();
+//    if (button2.isPressed()){
+//  button2Counter();
+}
+
+void reset(){
+  button3.waitForPress();
+  a=0;
+  b=0;
+  count1=0;
+  c=0;
+  d=0;
+  count=0;
+  digit=1;
+  button3.waitForRelease();
+  
+  
+  }
+void button2Counter(){
+    button2.waitForPress();
+    digit+=1;
+    digit1+=1;
+    button2.waitForRelease();
+}
+//numbers
+void zero(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, LOW);   
+}
+
+void one(){
+  digitalWrite(pinA,  LOW);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF,  LOW);   
+  digitalWrite(pinG, LOW);   
+}
+void two(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, LOW);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF,  LOW);   
+  digitalWrite(pinG, HIGH);   
+}
+
+void three(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF,  LOW);   
+  digitalWrite(pinG, HIGH);   
+}
+
+void four(){
+  digitalWrite(pinA,  LOW);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, HIGH);   
+}
+void five(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, LOW);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, HIGH);   
+}
+
+void six(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, LOW);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, HIGH);   
+}
+
+void seven(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF,  LOW);   
+  digitalWrite(pinG, LOW);   
+}
+
+void eight(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, HIGH);   
+}
+
+void nine(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, HIGH);   
+}
+
+void P(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, LOW);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, HIGH);   
+}
+
+
+void A(){
+  digitalWrite(pinA,  HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF,  HIGH);   
+  digitalWrite(pinG, HIGH);   
+}
+
+
+void I(){
+  
+}
+
+void S(){
+  
+}
+
+void O(){
+  
+}
+
+
+int checker(int F){
+  if (F==1){
+    one();
+    }
+  if (F==2){
+    two();
+    }
+  if (F==3){
+    three();
+    }
+  if (F==4){
+    four();
+    }
+  if (F==4){
+    four();
+    }
+  if (F==5){
+    five();
+    }
+  if (F==6){
+    six();
+    }
+  if (F==7){
+    seven();
+    }
+  if (F==8){
+    eight();
+    }
+  if (F==9){
+    nine();
+    }
+  if (F==0){
+    zero();
+    }
+ if (F==P){
+    P();
+    }
+ if (F==A){
+    A();
+    }
+ if (F==I){
+    one();
+    }
+  if (F==S){
+    five();
+    }
+}
+
+
+
+
+void loop()
+{
+
+Serial.println(digit);
+Serial.println(count);
+Serial.println(b);
+Serial.println("pass");
+Serial.println(pass);
+
+
+
+//Serial.println(count1);
+
+if (digit<6){
+if (button.getSingleDebouncedPress() & digit!=5){
+ a=0;
+ buttonCounter();
+ if (digit==1){
+ count+=a;
+ b=count;
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,LOW);
+
+ checker(count);
+ }
+ 
+ if (digit==2){
+ count+=a*10;
+  count1+=a;
+
+ 
+
+ }
+
+ 
+ if (digit==3){
+ count+=a*100;
+ c+=a;
+
+  
+ }
+ 
+ if (digit==4){
+  d+=a;
+ count+=a*1000;
+
+
+ }
+}
+}
+
+ if (digit>=1&&digit<=6){
+//  tone(8, 262, 250);
+digitalWrite(9,LOW);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(d);
+ delay(3);
+ 
+ digitalWrite(9,HIGH);
+ digitalWrite(10,LOW);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+
+ checker(c);
+ delay(3);
+   digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,LOW);
+ digitalWrite(12,HIGH);
+ checker(count1);
+  delay(3); 
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,LOW);
+
+ checker(b); 
+  delay(3);
+
+}
+
+
+
+//setting buzzer to beep thrice on setting up of password//
+//then setting all variables to zero//
+if (digit==5 && digit1==5){
+
+
+//   digitalWrite(A3,HIGH);
+ digitalWrite(9,LOW);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(P);
+ delay(10);
+ checker(P);
+ delay(10); checker(P); delay(10);
+ checker(P); delay(10);
+ checker(P); delay(10);
+ checker(P); delay(10);
+ checker(P);
+ delay(100); 
+ 
+ digitalWrite(9,HIGH);
+ digitalWrite(10,LOW);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(A);
+ delay(10); checker(A);
+ delay(10); checker(A);
+  delay(10); checker(A);
+ delay(10); checker(A);
+ delay(10); checker(A);
+ delay(10); checker(A);
+
+ delay(100);
+ 
+   digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,LOW);
+ digitalWrite(12,HIGH);
+ checker(S);
+  delay(10); checker(S);
+  delay(10); checker(S);
+    delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S);
+  delay(100); 
+  
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,LOW);
+ checker(S);
+  delay(10); checker(S);
+  delay(10); checker(S);
+    delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S);
+  delay(10); 
+ delay(500);
+
+    digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,LOW);
+ digitalWrite(12,HIGH);
+ checker(I);
+  delay(10); checker(I);
+  delay(10);  checker(I);
+    delay(10); checker(I);  delay(10); checker(I);  delay(10); checker(I);  delay(10); checker(I);
+  delay(100);  
+  
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,LOW);
+ checker(S);
+  delay(10); checker(S);
+  delay(10); checker(S);
+    delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S); 
+ delay(500);
+ 
+  digitalWrite(A3,LOW);
+  delay(300);
+
+
+
+
+  
+   digitalWrite(A3,HIGH);
+ digitalWrite(9,LOW);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(d);
+ delay(10);
+  checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(100);
+ 
+ digitalWrite(9,HIGH);
+ digitalWrite(10,LOW);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(c);
+ delay(10);
+  checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(100);
+ 
+   digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,LOW);
+ digitalWrite(12,HIGH);
+ checker(count1);
+  delay(10);
+   checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(100); 
+  
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,LOW);
+ checker(b); 
+ delay(10);
+  checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(200);
+ 
+  digitalWrite(A3,LOW);
+  delay(300);
+
+
+ 
+
+
+   digitalWrite(A3,HIGH);
+ digitalWrite(9,LOW);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(d);
+ delay(10);
+  checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(10); checker(d);
+ delay(100);
+ 
+ digitalWrite(9,HIGH);
+ digitalWrite(10,LOW);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(c);
+ delay(10);
+  checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(10); checker(c);
+ delay(100);
+ 
+   digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,LOW);
+ digitalWrite(12,HIGH);
+ checker(count1);
+  delay(10);
+   checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(10); checker(count1);
+  delay(100); 
+  
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,LOW);
+ checker(b); 
+ delay(10);
+  checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(10); checker(b); 
+ delay(200);
+ 
+  digitalWrite(A3,LOW);
+  delay(300);
+
+
+
+  
+   a=0;
+  b=0;
+  c=0;
+  d=0;
+  count1=0;
+  pass=count;
+  count=0;
+  digit=1;
+  
+}
+if (digit==5 && count==pass){
+// for (pos = 0; pos <= 90; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(90);              // tell servo to go to position in variable 'pos'
+//    delay(10);
+//    }
+ digitalWrite(A3,HIGH);
+ delay(10);
+  digitalWrite(A3,LOW);
+ 
+  }
+if (digit==5 && count!=pass){
+//   digitalWrite(A3,HIGH);
+ digitalWrite(9,LOW);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(O);
+ delay(10);
+ checker(O);
+ delay(10); checker(0); delay(10);
+ checker(O); delay(10);
+ checker(O); delay(10);
+ checker(O); delay(10);
+ checker(O);
+ delay(100); 
+
+
+  digitalWrite(9,HIGH);
+ digitalWrite(10,LOW);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,HIGH);
+ checker(O);
+ delay(10);
+ checker(O);
+ delay(10); checker(0); delay(10);
+ checker(O); delay(10);
+ checker(O); delay(10);
+ checker(O); delay(10);
+ checker(O);
+ delay(100); 
+ 
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,LOW);
+ digitalWrite(12,HIGH);
+ checker(P);
+ delay(10); checker(P);
+ delay(10); checker(P);
+  delay(10); checker(P);
+ delay(10); checker(P);
+ delay(10); checker(P);
+ delay(10); checker(P);
+
+ delay(100);
+  
+  
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ digitalWrite(11,HIGH);
+ digitalWrite(12,LOW);
+ checker(S);
+  delay(10); checker(S);
+  delay(10); checker(S);
+    delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S);  delay(10); checker(S);
+  delay(10); 
+
+
+ digitalWrite(A3,HIGH);
+ delay(300);
+  digitalWrite(A3,LOW);
+  }
+//if (digit==6 && count==3210){
+// digitalWrite(A3,LOW);
+//
+//  }
+
+
+
+
+
+
+//if (diigit==5){
+//  
+//  }
+
+
+ if (button2.isPressed()){
+  button2Counter();
+}
+if (button3.isPressed()){
+  reset();
+          for (pos = 60; pos <=180; pos -= 60) { // goes from 0 degrees to 180 degrees
+          myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(10);
+      }
+}
+
+
+//After the 4 digit password is enetered button 2 can be used as enter key to check the password//
+//if password is correct buzzer gets acctivated otherwise display gets reset to 0000//
+
+}
