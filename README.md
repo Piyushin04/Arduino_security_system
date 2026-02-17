@@ -1,8 +1,11 @@
-Password-Based Gate Control System (Embedded)
+Password-Based Gate Control System :
+
 A 4-digit password-based access control system built using an ATmega328P (Arduino). The system verifies user input and actuates a servo motor to simulate gate unlocking upon successful authentication.
 
 
-Features
+
+Features:
+
 4-digit password authentication
 
 Dynamic password setting mode
@@ -16,7 +19,9 @@ Buzzer feedback for success/failure
 Debounced push-button input handling
 
 
-Hardware Used
+
+Hardware Used:
+
 Arduino (ATmega328P)
 
 4-Digit 7-Segment LED Display
@@ -44,7 +49,9 @@ Incorrect password → Error indication and buzzer alert.
 Reset button clears input and returns system to idle.
 
 
-Pin Mapping (Core)
+
+Pin Mapping (Core):
+
 Segment Pins (A–G): D2–D8
 
 Digit Select (D1–D4): D9–D12
@@ -56,7 +63,9 @@ Buzzer: A3
 Buttons: A2, A4, A5
 
 
-Concepts Demonstrated
+
+Concepts Demonstrated:
+
 Embedded C/C++ firmware design
 
 GPIO-based display multiplexing
@@ -68,7 +77,9 @@ Event-driven input handling
 Authentication logic implementation
 
 
-Future Improvements
+
+Future Improvements:
+
 EEPROM-based non-volatile password storage
 
 Non-blocking timing using millis()
